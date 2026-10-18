@@ -7,7 +7,7 @@ import './SearchPage.css';
 function SearchPage() {
 
     //Task 1: Define state variables for the search query, age range, and search results.
-    const categories = ['Living', 'Bedroom', 'Bathroom', 'Kitchen', 'Office'];
+    const categories = ['Living', 'Living Room', 'Bedroom', 'Bathroom', 'Kitchen', 'Office', 'Office Furniture'];
     const conditions = ['New', 'Like New', 'Older'];
     const [searchQuery, setSearchQuery] = useState('');
     const [ageRange, setAgeRange] = useState(6); // Initialize with minimum value

@@ -99,10 +99,10 @@ function DetailsPage() {
                         {gift.condition}
                     </p>
                     <p><strong>Date Added:</strong> 
-                        {gift.dateAdded}
+                        {gift.date_added ? new Date(gift.date_added * 1000).toLocaleDateString() : 'Not available'}
                     </p>
                     <p><strong>Age (Years):</strong> 
-                        {gift.age}
+                        {gift.age_years ?? 'Not available'}
                     </p>
                     <p><strong>Description:</strong> 
                         {gift.description}
