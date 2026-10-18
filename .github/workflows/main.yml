@@ -1,0 +1,53 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  lint_js:
+    name: Lint JavaScript Files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install JSHint
+        run: npm install --global jshint@2.13.6
+
+      - name: Lint backend files
+        run: |
+          jshint giftlink-backend/app.js
+          jshint giftlink-backend/routes/authRoutes.js
+          jshint giftlink-backend/routes/giftRoutes.js
+          jshint giftlink-backend/routes/searchRoutes.js
+          echo "Linted backend JavaScript successfully"
+
+  client_build:
+    name: Build client
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install frontend dependencies
+        working-directory: giftlink-frontend
+        run: npm ci
+
+      - name: Build frontend
+        working-directory: giftlink-frontend
+        run: npm run build
