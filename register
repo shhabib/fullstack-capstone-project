@@ -1,0 +1,9 @@
+GiftLink user registration
+The throwaway password and authentication token are redacted.
+
+PowerShell cURL command:
+$body = '{"firstName":"Capstone","lastName":"Assessment","email":"giftlink-assessment-db723cb6dedc4964b21e896b95e59ccd@example.invalid","password":"[REDACTED]"}'
+$body | curl.exe --silent --show-error --write-out "`nHTTP_STATUS:%{http_code}" --request POST --url "http://localhost:3060/api/auth/register" --header "Content-Type: application/json" --data-binary "@-"
+
+HTTP_STATUS:200
+{"email":"giftlink-assessment-db723cb6dedc4964b21e896b95e59ccd@example.invalid","authtoken":"[REDACTED]"}

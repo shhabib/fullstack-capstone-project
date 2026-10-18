@@ -1,0 +1,4 @@
+Command: curl --request GET --url http://localhost:3060/api/gifts/429
+
+Output:
+{"_id":"6ad47e8c3680f5ecba5f5274","id":"429","name":"Side Table","category":"Living Room","condition":"Older","posted_by":"23789","zipcode":"94102","date_added":1677715200,"age_days":1100,"age_years":3.01,"description":"This side table has been a convenient spot for lamps and books...","image":"/images/side-table.jpeg"}
